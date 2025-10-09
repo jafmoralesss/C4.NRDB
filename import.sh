@@ -1,0 +1,1 @@
+mongoimport --uri "mongodb+srv://jafmoralesss:MyPassword@clusterforc4.sjhdjh4.mongodb.net/ClusterForC4" --db "ClusterForC4" --collection "Trial collection" --type csv --file "practice.csv" --headerline
