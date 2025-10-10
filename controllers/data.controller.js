@@ -6,13 +6,13 @@ const getAllData = async (req, res) => {
   try {
 
     const collection = getDB().collection("Trial collection");
-    const documents = await DataModel.getAllDocuments(collection);
+    const documents = await DataModel.getAllDocs(collection);
     res.json(documents);
 
   } catch (e) {
-    
+    console.error(e);
     res.status(500).send("Error fetching documents.");
-    
+
   }
 };
 

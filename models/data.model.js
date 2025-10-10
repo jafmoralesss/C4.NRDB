@@ -1,7 +1,12 @@
-const getAllDocs = (collection) =>{
-    return collection.fin({}).toArray();
+const getAllDocs = (collection) => {
+  return collection.find({}).toArray();
+};
+
+const createDoc = (collection, document) => {
+  return collection.insertOne(document);
 };
 
 module.exports = {
-    getAllDocs,
+  getAllDocs,
+  createDoc,
 };
