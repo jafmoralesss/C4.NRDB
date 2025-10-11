@@ -1,3 +1,5 @@
+const { ObjectId } = require('mongodb');
+
 const getAllDocs = (collection) => {
   return collection.find({}).toArray();
 };
