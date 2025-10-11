@@ -11,7 +11,10 @@ async function startServer() {
 
   app.use(express.json());
   app.get('/api/restaurants', DataController.getAllData);
-  app.post('/api/restaurants', DataController.createData)
+  app.post('/api/restaurants', DataController.createData);
+  app.put('/api/restaurants/:id', DataController.updateData);
+  app.delete('/api/restaurants/:id', DataController.deleteData);
+
 
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
