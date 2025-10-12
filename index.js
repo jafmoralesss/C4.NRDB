@@ -13,6 +13,7 @@ async function startServer() {
   app.post('/api/restaurants', DataController.createData);
   app.put('/api/restaurants/:id', DataController.updateData);
   app.delete('/api/restaurants/:id', DataController.deleteData); 
+  app.post('/api/restaurants/:id/reviews', DataController.addReview);
 
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

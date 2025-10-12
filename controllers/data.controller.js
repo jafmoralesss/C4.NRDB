@@ -61,9 +61,29 @@ const deleteData = async (req, res) => {
     }
 };
 
+const addReview = async (req, res) => {
+    try {
+        const collection = getDB().collection("restaurants");
+        const id = req.params.id;
+        const newReview = req.body;
+
+        newReview.submittedAt = new Data ();
+
+        const result = await DataModel.addReview (collection,id,newReview);
+        if (result.matchedCount ===0){
+            return res.status(404).send("Restaurant not found.");
+        }
+        return res.status(201).json({message: "New review added."});
+    } catch (e) {
+        console.error(e);
+        res.status(500).send("Error when adding review");
+    }
+};
+
 module.exports = {
   getAllData,
   createData,
   updateData,
   deleteData,
+  addReview,
 };

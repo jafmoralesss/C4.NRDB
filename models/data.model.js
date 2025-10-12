@@ -20,9 +20,17 @@ const deleteDoc = (collection, id) => {
     return collection.deleteOne({ _id: new ObjectId(id)});
 };
 
+const addReview = (collection, id, newReview) => {
+    return collection.updateOne(
+        {_id: new ObjectId (id)},
+        {$push: {reviews:newReview}}
+    );
+};
+
 module.exports = {
   getAllDocs,
   createDoc,
   updateDoc,
   deleteDoc,
+  addReview,
 };
