@@ -68,6 +68,7 @@ const addReview = async (req, res) => {
         const newReview = req.body;
 
         newReview.submittedAt = new Date ();
+        newReview.authorUsername = req.user.username;
 
         const result = await DataModel.addReview (collection,id,newReview);
         if (result.matchedCount ===0){
